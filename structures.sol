@@ -9,7 +9,7 @@ library Structures {
     }
 
     struct Image {
-        string  nameImage;   // Название песни
+        string  nameImage;   // Название  изображения
         string  size;        // Размер изображения
         uint    timeReg;     // Время регистрации изображения
         bytes32 hashImage;   // Хэш изображения
