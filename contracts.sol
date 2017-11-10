@@ -6,7 +6,7 @@ contract SongAuthority {
     mapping(uint256 => Structures.Song)   public songs;  // Этот массив хранит в блокчейне все песни
 
     // Добавление автора
-    function addAuthor(string nameAuthor) internal {
+    function addAuthor(string nameAuthor) public {
         autors[msg.sender] = Structures.Author(nameAuthor, block.timestamp, msg.sender, block.number); // Добавляем автора
     }
 
@@ -14,7 +14,7 @@ contract SongAuthority {
     uint256 lastSongId = 0; // Хранится блокчейне
    
     //Добавляем песню
-    function addSong(string nameSong, uint8 time, bytes32 hashText, string textSong) internal { 
+    function addSong(string nameSong, uint8 time, bytes32 hashText, string textSong) public { 
         for (uint256 i = 0; i <= lastSongId; i++) {                                                                                                         // создаем цикл в котором перебираем все id песен 
             require(hashText != songs[lastSongId].hashText);                                                                                                // если hash нашей новой песни != hash какой-то песни, то функция останавливается
         }                                                                                                                                                   // Увеличиваем счетчик на 1    
