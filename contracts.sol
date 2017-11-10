@@ -14,11 +14,11 @@ contract SongAuthority {
     uint256 lastSongId = 0; // Хранится блокчейне
    
     //Добавляем песню
-    function addSong(string nameSong, uint8 time, bytes32 hashSong, bytes32 hashText, string textSong) internal { 
+    function addSong(string nameSong, uint8 time, bytes32 hashText, string textSong) internal { 
         for (uint256 i = 0; i <= lastSongId; i++) {                                                                                                         // создаем цикл в котором перебираем все id песен 
-            require(hashSong != songs[lastSongId].hashSong);                                                                                                // если hash нашей новой песни != hash какой-то песни, то функция останавливается
+            require(hashText != songs[lastSongId].hashText);                                                                                                // если hash нашей новой песни != hash какой-то песни, то функция останавливается
         }                                                                                                                                                   // Увеличиваем счетчик на 1    
-        songs[lastSongId] = Structures.Song(nameSong, time, block.timestamp, keccak256(hashSong), keccak256(hashText), textSong, msg.sender, block.number); // Добавляем песню
+        songs[lastSongId] = Structures.Song(nameSong, time, block.timestamp, keccak256(hashText), textSong, msg.sender, block.number); // Добавляем песню
         lastSongId++;  
     }  
 }

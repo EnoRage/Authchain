@@ -12,7 +12,6 @@ library Structures {
         string  nameSong;    // Название песни
         uint    time;        // Длительность песни
         uint    timeReg;     // Время регистрации песни
-        bytes32 hashSong;    // Хэш песни
         bytes32 hashText;    // Хэш текста
         string  textSong;    // Текст
         address idAuthor;    // Идентификатор автора песни (его адрес)
