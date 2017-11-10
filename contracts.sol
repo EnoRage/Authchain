@@ -32,3 +32,5 @@ contract GetAuthor is SongAuthority {
 contract GetSong is SongAuthority {
    function getSong(uint songId) constant public returns(Structures.Song) { return songs[songId]; }
 } 
+
+//Теперь все на гите 
