@@ -3,6 +3,7 @@ pragma solidity ^0.4.0;
 library Structures {
     struct Author { 
         string  nameAuthor;    // Псевдоним 
+        string  email;         // E-mail автора
         uint    timeReg;       // Время регистрации псевдонима	
         address addressAuthor; // Адрес автора
         uint    blockNumber;   // Номер блока, в котором будет добавлен автор
