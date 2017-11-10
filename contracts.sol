@@ -17,7 +17,7 @@ contract ImageAuthority {
     function addImage(string nameImage, string size) public { 
         bytes32 hashImage = "9999";
         for (uint256 i = 0; i <= lastImageId; i++) {                                                                                                         // создаем цикл в котором перебираем все id песен 
-            require(hashImage != images[i].hashImage);                                                                  // Проверяем на наличие такой картинки                                                                                         // если hash нашей новой песни != hash какой-то песни, то функция останавливается
+            require(keccak256(hashImage) != keccak256(images[i].hashImage));                                                                  // Проверяем на наличие такой картинки                                                                                         // если hash нашей новой песни != hash какой-то песни, то функция останавливается
         }
         require (autors[msg.sender].addressAuthor == msg.sender);                                                                 // Создан ли автор?                                                                                                                                                // Увеличиваем счетчик на 1    
         images[lastImageId] = Structures.Image(nameImage, size, block.timestamp, keccak256(hashImage), msg.sender, block.number); // Добавляем песню
