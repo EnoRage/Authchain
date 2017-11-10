@@ -1,9 +1,9 @@
 pragma solidity ^0.4.0;
 import "./structures.sol";
 
-contract SongAuthority {
+contract ImageAuthority {
     mapping(address => Structures.Author) public autors; // Этот массив хранит в блокчейне всех авторов
-    mapping(uint256 => Structures.Song)   public songs;  // Этот массив хранит в блокчейне все песни
+    mapping(uint256 => Structures.Image)  public images; // Этот массив хранит в блокчейне все песни
 
     // Добавление автора
     function addAuthor(string nameAuthor) public {
@@ -11,35 +11,38 @@ contract SongAuthority {
     }
 
     // ID предыдущей песни
-    uint256 lastSongId = 0; // Хранится блокчейне
+    uint256 lastImageId = 0; // Хранится блокчейне
    
     //Добавляем песню
-    function addSong(string nameSong, uint8 time, bytes32 hashText, string textSong) public { 
-        for (uint256 i = 0; i <= lastSongId; i++) {                                                                                                         // создаем цикл в котором перебираем все id песен 
-            require(hashText != songs[lastSongId].hashText);                                                                                                // если hash нашей новой песни != hash какой-то песни, то функция останавливается
-        }                                                                                                                                                   // Увеличиваем счетчик на 1    
-        songs[lastSongId] = Structures.Song(nameSong, time, block.timestamp, keccak256(hashText), textSong, msg.sender, block.number); // Добавляем песню
-        lastSongId++;  
+    function addImage(string nameImage, uint8 time, bytes32 hashImage) public { 
+        for (uint256 i = 0; i <= lastImageId; i++) {                                                                                                         // создаем цикл в котором перебираем все id песен 
+            require(hashImage != images[lastImageId].hashImage);                                                                                                // если hash нашей новой песни != hash какой-то песни, то функция останавливается
+        }
+        // if (autors[msg.sender].addressAuthor == msg.sender) {
+            
+        // }                                                                                                                                                  // Увеличиваем счетчик на 1    
+        images[lastImageId] = Structures.Image(nameImage, time, block.timestamp, keccak256(hashImage), msg.sender, block.number); // Добавляем песню
+        lastImageId++;  
     }  
 }
 
 //Контракт для получения данных об авторе
-contract GetAuthor is SongAuthority {
+contract GetAuthor is ImageAuthority {
    function getAuthor(address author) constant public returns(Structures.Author) { return autors[author]; }
 } 
 
 //Контракт для получения данных о песне
-contract GetSong is SongAuthority {
-   function getSong(uint songId) constant public returns(Structures.Song) { return songs[songId]; }
+contract GetSong is ImageAuthority {
+   function getImage(uint imageId) constant public returns(Structures.Image) { return images[imageId]; }
 } 
 
 //Контракт для изменения автора песни
-contract ChangeSongAuthority is SongAuthority {
-    function setNewAuthority(string nameSong, address newIdAuthor) public {     // Вводим название песни и адрес нового автора
-        for (uint256 i = 0; i <= lastSongId; i++) {                             // Перебираем весь массив с песнями
-            if (keccak256(nameSong) == keccak256(songs[lastSongId].nameSong)) { // Если песня нашлась по названию, то
-                require(songs[lastSongId].idAuthor == msg.sender);              // Делаем проверку (изменить может только автор песни)
-                songs[lastSongId].idAuthor = newIdAuthor;                       // Присваеваем песне новое авторство
+contract ChangeSongAuthority is ImageAuthority {
+    function setNewAuthority(string nameImage, address newIdAuthor) public {     // Вводим название песни и адрес нового автора
+        for (uint256 i = 0; i <= lastImageId; i++) {                             // Перебираем весь массив с песнями
+            if (keccak256(nameImage) == keccak256(images[lastImageId].nameImage)) { // Если песня нашлась по названию, то
+                require(images[lastImageId].idAuthor == msg.sender);              // Делаем проверку (изменить может только автор песни)
+                images[lastImageId].idAuthor = newIdAuthor;                       // Присваеваем песне новое авторство
             }
         }
     }
