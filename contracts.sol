@@ -1,20 +1,6 @@
 pragma solidity ^0.4.0;
 import "./structures.sol";
 
-// contract Ownable {
-//      address owner;
- 
-//     modifier onlyOwner() {
-//         require(msg.sender == owner);
-//         _;
-//     }
-    
- 
-//     function transferOwnership(address newOwner) onlyOwner {
-// 	    owner = newOwner;
-//     }
-    
-// }
 contract SongAuthority {
     mapping(address => Structures.Author) public autors; // Этот массив хранит в блокчейне всех авторов
     mapping(uint256 => Structures.Song)   public songs;  // Этот массив хранит в блокчейне все песни
