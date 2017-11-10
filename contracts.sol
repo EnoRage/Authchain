@@ -36,3 +36,7 @@ contract GetSong is SongAuthority {
 //Теперь все на гите 
 // Привет
 // HI
+// Привет
+// HI
+
+// MyNameIsKirill
