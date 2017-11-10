@@ -14,7 +14,7 @@ contract ImageAuthority {
     uint256 lastImageId = 0; // Хранится блокчейне
    
     //Добавляем песню
-    function addImage(string nameImage, uint8 size, bytes32 hashImage) public { 
+    function addImage(string nameImage, string size, bytes32 hashImage) public { 
         for (uint256 i = 0; i <= lastImageId; i++) {                                                                                                         // создаем цикл в котором перебираем все id песен 
             require(hashImage != images[lastImageId].hashImage);                                                                                                // если hash нашей новой песни != hash какой-то песни, то функция останавливается
         }
@@ -26,15 +26,15 @@ contract ImageAuthority {
     }  
 }
 
-//Контракт для получения данных об авторе
-contract GetAuthor is ImageAuthority {
-   function getAuthor(address author) constant public returns(Structures.Author) { return autors[author]; }
-} 
+// //Контракт для получения данных об авторе
+// contract GetAuthor is ImageAuthority {
+//    function getAuthor(address author) constant public returns(Structures.Author) { return autors[author]; }
+// } 
 
-//Контракт для получения данных о песне
-contract GetSong is ImageAuthority {
-   function getImage(uint imageId) constant public returns(Structures.Image) { return images[imageId]; }
-} 
+// //Контракт для получения данных о песне
+// contract GetSong is ImageAuthority {
+//    function getImage(uint imageId) constant public returns(Structures.Image) { return images[imageId]; }
+// } 
 
 //Контракт для изменения автора песни
 contract ChangeSongAuthority is ImageAuthority {
