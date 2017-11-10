@@ -14,14 +14,14 @@ contract ImageAuthority {
     uint256 lastImageId = 0; // Хранится блокчейне
    
     //Добавляем песню
-    function addImage(string nameImage, uint8 time, bytes32 hashImage) public { 
+    function addImage(string nameImage, uint8 size, bytes32 hashImage) public { 
         for (uint256 i = 0; i <= lastImageId; i++) {                                                                                                         // создаем цикл в котором перебираем все id песен 
             require(hashImage != images[lastImageId].hashImage);                                                                                                // если hash нашей новой песни != hash какой-то песни, то функция останавливается
         }
         // if (autors[msg.sender].addressAuthor == msg.sender) {
             
         // }                                                                                                                                                  // Увеличиваем счетчик на 1    
-        images[lastImageId] = Structures.Image(nameImage, time, block.timestamp, keccak256(hashImage), msg.sender, block.number); // Добавляем песню
+        images[lastImageId] = Structures.Image(nameImage, size, block.timestamp, keccak256(hashImage), msg.sender, block.number); // Добавляем песню
         lastImageId++;  
     }  
 }

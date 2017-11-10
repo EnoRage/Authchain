@@ -10,9 +10,9 @@ library Structures {
 
     struct Image {
         string  nameImage;   // Название песни
-        uint    size;        // Длительность песни
+        uint    size;        // Размер изображения
         uint    timeReg;     // Время регистрации изображения
-        bytes32 hashImage;   // Хэш текста
+        bytes32 hashImage;   // Хэш изображения
         address idAuthor;    // Идентификатор автора изображения (его адрес)
         uint    blockNumber; // Номер блока, в котором будет добавлена песня
     }
