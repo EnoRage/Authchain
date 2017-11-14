@@ -1,10 +1,6 @@
 pragma solidity ^0.4.0;
 import "./structures.sol";
 
-
-
-
-
 contract ImageAuthority {
     mapping(uint256 => Structures.Author) public autors; // Этот массив хранит в блокчейне всех авторов
     mapping(uint256 => Structures.Image)  public images; // Этот массив хранит в блокчейне все песни
