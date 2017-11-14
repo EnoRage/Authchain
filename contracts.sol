@@ -16,7 +16,7 @@ contract ImageAuthority {
     function addAuthor(string nameAuthor, string email) public {
         //Проверяем на авторство псевдоним
         for (uint256 i = 0; i <= authorId; i++) {
-            require(keccak256(autors[i].nameAuthor) == keccak256(nameAuthor));
+            require(keccak256(autors[i].nameAuthor) != keccak256(nameAuthor));
         }
 
         autors[authorId] = Structures.Author(nameAuthor, email, block.timestamp, msg.sender, block.number); // Добавляем автора
