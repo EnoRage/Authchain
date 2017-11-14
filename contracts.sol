@@ -1,6 +1,10 @@
 pragma solidity ^0.4.0;
 import "./structures.sol";
 
+
+
+
+
 contract ImageAuthority {
     mapping(address => Structures.Author) public autors; // Этот массив хранит в блокчейне всех авторов
     mapping(uint256 => Structures.Image)  public images; // Этот массив хранит в блокчейне все песни
@@ -32,11 +36,9 @@ contract ChangeSongAuthority is ImageAuthority {
     function setNewAuthority(string nameImage, address newIdAuthor) public returns(string) {  // Вводим название песни и адрес нового автора
         for (uint256 i = 0; i <= lastImageId; i++) {                                          // Перебираем весь массив с песнями
             if (keccak256(nameImage) == keccak256(images[i].nameImage)) {                     // Если изображение нашлось по названию, то
-                // if (images[i].idAuthor != msg.sender) {                                    // Делаем проверку (изменить может только автор изображения)
-                //     return "У вас нет прав.";
-                // } else {
-                //     images[i].idAuthor = newIdAuthor;                                      // Присваеваем песне новое авторство
-                // }
+                require(images[i].idAuthor == msg.sender);                                    // Не даём изменить авторство, если ты не владелец фотки
+                images[i].idAuthor = newIdAuthor;                                             // Если владелец, то изменяем авторство
+                return "Автор изменён";                                                       
             }
         }
     }
