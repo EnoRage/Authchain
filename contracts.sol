@@ -25,23 +25,16 @@ contract ImageAuthority {
 
     // ID предыдущего изображения
     uint256 imageId = 0; // Хранится блокчейне
-   
+    bytes32 hashImage = "9999";
+
     //Добавляем изображение
-    function addImage(string nameImage, string size) public returns(string) { 
-        bytes32 hashImage = "9999";
-
-        // Проверка на существование изображения
+    function addImage(string nameImage, string size) public returns(bytes32) { 
+        
         for (uint256 i = 0; i <= imageId; i++) {
-            // if (keccak256(hashImage) == keccak256(images[i].hashImage)) {     
-            //     return "Такая картинка уже есть.";
-            // }                                                                             
+            require (images[i].hashImage != keccak256(hashImage)); // Проверка на существование изображения 
+            require (autors[i].addressAuthor == msg.sender);       // Проверяем на существование автора
         }
-
-        // Проверяем на существование автора
-        for (uint256 b = 0; b <= authorId; b++) {
-            require (autors[b].addressAuthor == msg.sender);                                                                            
-        }
-                                                                     
+                                                           
         images[imageId] = Structures.Image(nameImage, size, block.timestamp, keccak256(hashImage), msg.sender, block.number); // Добавляем песню
         imageId++;  
     }  
