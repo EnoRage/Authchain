@@ -1,69 +1,82 @@
 <html>
     <head>
-        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-        
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Authchain</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/slider.css" />
         <link rel="stylesheet" type="text/css" href="css/style.css" />
-
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-        <!-- Optional theme -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="js/slider.js"></script>
     </head>
     <body>
-         
-           <div class="first-slide container-fluid">
-                <!-- <nav class="navbar">
-                    <div class="container text-left">    
-                        <div>
-                            <ul class="nav navbar-nav">
-                                <li class="active"><a href="#">Добавить автора</a></li>
-                                <li><a href="#">Добавить песню</a></li>
-                                <li><a href="#">О нас</a></li>
-                            </ul>
+        <section class="slide-wrapper">
+            <div class="container">
+                <div id="myCarousel" class="carousel slide">
+                <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                    </ol>
+            
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                        <div class="item item1 active">
+                            <div class="fill first-slide">
+                                <div class="inner-content brand-name">
+                                    <div class="carousel-desc">
+                                        <h2>Authchain</h2>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </nav> -->
-                <div class="row" style="margin: 84vh 1vw 0 0">
-                    <!-- <div class="col-md-12 text-center">
-                        <h1 class="brand-name">AUTHCHAIN</h1>
-                    </div> -->
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-8">
-                                <blockquote class="text-left" style="color: #ffffff; font-size: 2vw; border-left: .21vw solid white">
-                                 Я у мамы программист!<footer>Джейсон Стетхем</footer>
-                                </blockquote> 
+                        <div class="item item2">
+                            <div class="fill second-slide">
+                                <div class="inner-content col-lg-6 col-md-6 col-sm-6 col-xs-12 col-lg-8">
+                                    <div class="col-md-2"></div>
+                                    <div class="carousel-desc col-md-8" style="margin: 24em 0 0 0">
+                                        <form>
+                                            <div class="form-group">
+                                                <div class="">
+                                                        <label for="nickname"><h1 style="color: white">Псевдоним</h1></label>
+                                                        <input type="text" class="form-control input-md input-style" id="nickname" style="background: none; color: white">
+                                                </div>
+                                                <div class="">
+                                                        <label for="email"><h1 style="color: white">Почта</h1></label>
+                                                        <input type="text" class="form-control input-md input-style" id="email" style="background: none; color: white">
+                                                </div>  
+                                            </div>
+                                            <!-- <input type="submit" class="btn btn-block btn-md" value="ДОБАВИТЬ"> -->
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item item3">
+                            <div class="fill third-slide">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-lg-4"></div>
+                                <div class="inner-content col-lg-6 col-md-6 col-sm-6 col-xs-12 col-lg-8">
+                                    <div class="col-md-8 carousel-desc" style="margin: 24em 0 0 0">
+                                        <form>
+                                            <div class="form-group">
+                                                <div class="">
+                                                        <label for="name-image"><h1 style="color: white">Названиие</h1></label>
+                                                        <input type="text" class="form-control input-md" id="name-image" style="background: none; color: white">
+                                                </div>
+                                                <div class="">
+                                                        <label for="size"><h1 style="color: white">Размер</h1></label>
+                                                        <input type="text" class="form-control input-md" id="size" style="background: none; color: white">
+                                                </div>  
+                                            </div>
+                                            <!-- <input type="submit" class="btn btn-block btn-md" value="ДОБАВИТЬ"> -->
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                </div>
             </div>
-           <div class="second-slide container-fluid">
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-lg-8">
-                        <div class="col-md-3"></div>
-                        <div class="col-md-8" style="margin: 24em 0 0 0">
-                                <form>
-                                    <div class="form-group">
-                                        <div class="">
-                                                <label for="nickname"><h2 style="color: white">Псевдоним</h2></label>
-                                                <input type="text" class="form-control input-md input-style" id="nickname" style="background: none; color: white">
-                                        </div>
-                                        <div class="">
-                                                <label for="email"><h2 style="color: white">Почта</h2></label>
-                                                <input type="text" class="form-control input-md input-style" id="email" style="background: none; color: white">
-                                        </div>  
-                                    </div>
-                                    <!-- <input type="submit" class="btn btn-block btn-md" value="ДОБАВИТЬ"> -->
-                                </form>
-                        </div>
-                   </div>
-           </div>
+        </section>
     </body>
 </html>
