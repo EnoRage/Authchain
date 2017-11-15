@@ -1,4 +1,5 @@
-.first-slide, .second-slide {
+.first-slide {
+  background: url('../img/background2.png') no-repeat center center;
   height: 100%;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -6,16 +7,18 @@
        background-size: cover;
 }
 
-.first-slide {
-  background: url('../img/background2.png') no-repeat center center;
-}
 .second-slide {
   background: url('../img/background.png') no-repeat center center;
+  height: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+    -o-background-size: cover;
+       background-size: cover;
 }
 
 .brand-name {
   font-family: Century 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   color: white;
-  font-size: 9vw;
-  margin: 1.8em 0 0 0;
+  font-size: 4vw;
+  margin: 1em 0 0 0;
 }
