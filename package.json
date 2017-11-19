@@ -1,9 +1,12 @@
 {
   "name": "authchain",
   "version": "1.0.0",
-  "description": "",
   "main": "nodeScripts.js",
-  "dependencies": {},
+  "dependencies": {
+    "crypto-js": "^3.1.9-1",
+    "jsrsasign": "^8.0.4",
+    "jsrsasign-util": "^1.0.0"
+  },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,5 +20,6 @@
   "bugs": {
     "url": "https://github.com/EnoRage/Authchain/issues"
   },
-  "homepage": "https://github.com/EnoRage/Authchain#readme"
+  "homepage": "https://github.com/EnoRage/Authchain#readme",
+  "description": ""
 }
