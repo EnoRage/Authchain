@@ -27,6 +27,6 @@ var hexMessage = ascii_to_hexa(m);             // Переводим в шест
 var sigValue = ec.signHex(hexMessage, prvhex); // Подписываем сообщение приватным ключом
 
 // Подтверждаем подлинность подписанного сообщения при помощи общедоступного ключа
-var result = ec.verifyHex(hexMessage, sigValue, prvhex); 
+var result = ec.verifyHex(hexMessage, sigValue, pubhex); 
 
 console.log(result); // Если кошелёк принадлежит тебе и сообщение не было перехвачено и изменено ---> true
