@@ -1,1 +1,7 @@
-text
+var ec = new KJUR.crypto.ECDSA({'curve': 'secp256r1'});
+var keypair = ec.generateKeyPairHex();
+var pubhex = keypair.ecpubhex; // hexadecimal string of EC public key
+var prvhex = keypair.ecprvhex; // hexadecimal string of EC private key (=d)
+
+
+генерирует ключи
